@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Injection Inspector</title>
     <style>
-        * {
-            margin:0;
-            padding:0;
-        }
-        body,html {
+        body {
+            margin: 0;
             overflow: hidden;
         }
         textarea {
-            border:none;
+            border: none;
             width: 100vw;
-            height:100vh;
+            height: 100vh;
         }
     </style>
 </head>
 <body>
-    <textarea></textarea>
-    <script>
-        const p = document.querySelector('textarea');
-        window.setInterval(function() {
-            p.value = document.head.innerHTML + "\n" + document.body.innerHTML;
-        }, 1000);
-    </script>
+<textarea></textarea>
+<script>
+    const t = document.getElementsByTagName('textarea')[0];
+    window.setInterval(function () {
+        t.value = `${navigator.userAgent}\n\n${document.firstElementChild.innerHTML}`;
+    }, 1000);
+</script>
 </body>
 </html>
